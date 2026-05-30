@@ -1,0 +1,9 @@
+function FindProxyForURL(url, host) {
+    if (isPlainHostName(host) || shExpMatch(host, "localhost") || shExpMatch(host, "127.*") || shExpMatch(host, "192.168.*") || shExpMatch(host, "10.*")) {
+        return "DIRECT";
+    }
+    if (shExpMatch(host, "*.ru") || shExpMatch(host, "*.su") || shExpMatch(host, "*.рф") || dnsDomainIs(host, "vk.com") || dnsDomainIs(host, "vkontakte.ru")) {
+        return "DIRECT";
+    }
+    return "PROXY 148.253.210.145:443";
+}
